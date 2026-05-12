@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Portal - Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <h2>Student Login</h2>
+            <p>Enter your email to receive a one-time password.</p>
+
+            <!-- Step 1: Email Input -->
+            <div id="email-step">
+                <input type="email" id="student-email" placeholder="student@example.com" required>
+                <button id="send-otp-btn" onclick="requestOTP()">Send OTP</button>
+            </div>
+
+            <!-- Step 2: OTP Input (Hidden initially) -->
+            <div id="otp-step" style="display: none;">
+                <p class="success-text">An OTP has been sent to your email.</p>
+                <input type="text" id="student-otp" placeholder="Enter 6-digit OTP" required autocomplete="one-time-code">
+                <button id="verify-otp-btn" onclick="verifyOTP()">Login</button>
+            </div>
+
+            <!-- Feedback Message -->
+            <p id="auth-message" class="message"></p>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
