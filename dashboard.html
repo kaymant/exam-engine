@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Portal - Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div>
+                <h2 id="welcome-text">Loading...</h2>
+                <p id="tier-text" style="color: var(--text-muted); font-size: 0.9rem;"></p>
+            </div>
+            <button class="btn-small" onclick="logout()">Logout</button>
+        </header>
+
+        <main>
+            <!-- Analytics Panel -->
+            <section class="panel">
+                <h3>Your Performance</h3>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        Exams Taken
+                        <span id="stat-taken">-</span>
+                    </div>
+                    <div class="stat-box">
+                        Average Score
+                        <span id="stat-avg">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Live Exams Panel -->
+            <section class="panel">
+                <h3>Available Exams</h3>
+                <ul id="live-exams-list" class="exam-list">
+                    <li>Loading available exams...</li>
+                </ul>
+            </section>
+
+            <!-- Past Submissions Panel -->
+            <section class="panel">
+                <h3>Past Submissions</h3>
+                <ul id="past-exams-list" class="exam-list">
+                    <li>Loading history...</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
