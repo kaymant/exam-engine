@@ -4,6 +4,7 @@
 const API_URL = 'https://script.google.com/macros/s/AKfycbypWMCNgDxW0y4VJ8n86oDxN7NM0WewaK02lUXAG9TCk8xGT__dmDE0P4j0fsyfk8WGoQ/exec';
 
 let currentEmail = "";
+let currentName = "";
 
 // Auto-redirect to dashboard if a session already exists
 document.addEventListener("DOMContentLoaded", () => {
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function requestOTP() {
+    const nameInput = document.getElementById('student-name').value.trim();
     const emailInput = document.getElementById('student-email').value.trim();
     const messageEl = document.getElementById('auth-message');
     const btn = document.getElementById('send-otp-btn');
@@ -25,6 +27,7 @@ async function requestOTP() {
         return;
     }
 
+    currentName = nameInput;
     currentEmail = emailInput;
     btn.innerText = "Sending...";
     btn.disabled = true;
@@ -72,7 +75,7 @@ async function verifyOTP() {
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
-            body: JSON.stringify({ action: 'verifyOTP', email: currentEmail, otp: otpInput })
+            body: JSON.stringify({ action: 'verifyOTP', email: currentEmail, name: currentName, otp: otpInput })
         });
         
         const result = await response.json();

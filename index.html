@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon/favicon.ico">
     <title>Exam Portal - Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,6 +16,7 @@
 
             <!-- Step 1: Email Input -->
             <div id="email-step">
+                <input type="text" id="student-name" placeholder="Full Name" required>
                 <input type="email" id="student-email" placeholder="student@example.com" required>
                 <button id="send-otp-btn" onclick="requestOTP()">Send OTP</button>
             </div>
