@@ -89,8 +89,9 @@ function renderDashboard(data) {
                     <strong>Exam ID: ${exam.examId}</strong><br>
                     <small style="color: var(--text-muted);">${dateStr}</small>
                 </div>
-                <div>
-                    <strong>Score: ${exam.score}</strong>
+                <div style="text-align: right;">
+                    <strong>Score: ${exam.score}</strong><br>
+                    <a href="review.html?id=${exam.examId}" class="btn-small" style="display: inline-block; margin-top: 0.5rem; text-decoration: none; color: white; background: var(--primary-color); border-radius: 4px;">Review Answers</a>
                 </div>
             </li>
         `;

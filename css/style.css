@@ -296,3 +296,26 @@ button:disabled {
     padding: 0.75rem 2rem;
     background-color: var(--primary-color);
 }
+
+
+/* Review Page Status Colors */
+.correct-bg {
+    background-color: #d1fae5 !important;
+    border-color: #10b981 !important;
+}
+.wrong-bg {
+    background-color: #fee2e2 !important;
+    border-color: #ef4444 !important;
+}
+.missed-bg {
+    background-color: #fef3c7 !important;
+    border-color: #f59e0b !important;
+    border-style: dashed !important;
+}
+.review-feedback {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    background: #f8fafc;
+    border-left: 4px solid var(--primary-color);
+}
