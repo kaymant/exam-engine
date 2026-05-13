@@ -33,8 +33,36 @@ async function loadExamData() {
         const response = await fetch(`data/${currentExamId}.json`);
         if (!response.ok) throw new Error("Exam file not found");
         
-        const questions = await response.json();
-        renderQuestions(questions);
+        // 1. Parse the new JSON structure
+        const examData = await response.json();
+        
+        // 2. Set the duration (Convert minutes from JSON into seconds)
+        // If you forget to put a duration in the JSON, it defaults to 60 minutes
+        examDuration = (examData.duration || 60) * 60; 
+
+        // 3. CHECK PERSISTENT TIMER (Refresh-proof logic)
+        const startTimeKey = `start_time_${currentExamId}`;
+        const savedStartTime = localStorage.getItem(startTimeKey);
+
+        if (savedStartTime) {
+            const elapsed = Math.floor((Date.now() - parseInt(savedStartTime)) / 1000);
+            timeRemaining = examDuration - elapsed;
+            
+            // If they refreshed after time expired, force submit
+            if (timeRemaining <= 0) {
+                alert("Your time expired while you were away.");
+                submitExam();
+                return;
+            }
+        } else {
+            // First time loading the exam
+            localStorage.setItem(startTimeKey, Date.now().toString());
+            timeRemaining = examDuration;
+        }
+
+        // 4. Pass only the questions array to the renderer
+        renderQuestions(examData.questions);
+        
     } catch (error) {
         document.getElementById("exam-container").innerHTML = `<h3>Error loading exam.</h3><p>${error.message}</p>`;
     }
@@ -148,6 +176,7 @@ async function submitExam() {
         const result = await response.json();
         
         if (result.success) {
+            localStorage.removeItem(`start_time_${currentExamId}`);
             alert(`Exam Submitted Successfully! Score: ${result.score}`);
             window.location.href = 'dashboard.html'; // Send them back to dashboard
         } else {
