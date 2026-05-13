@@ -1,0 +1,29 @@
+[
+  {
+    "id": "q_001",
+    "type": "SCQ",
+    "text": "A particle moves in a straight line with velocity $v = t^2 - 4t + 3$ m/s. Find the time $t$ when the particle comes to rest.",
+    "options": [
+      "$t = 1$ s and $t = 3$ s",
+      "$t = 2$ s only",
+      "$t = 4$ s",
+      "$t = 1.5$ s"
+    ]
+  },
+  {
+    "id": "q_002",
+    "type": "MCQ",
+    "text": "Which of the following functions are continuous at $x = 0$? (Select all that apply)",
+    "options": [
+      "$f(x) = \\sin(x) / x$",
+      "$f(x) = |x|$",
+      "$f(x) = 1 / x$",
+      "$f(x) = x \\sin(1/x)$"
+    ]
+  },
+  {
+    "id": "q_003",
+    "type": "NAT",
+    "text": "Calculate the magnitude of the magnetic field at the center of a circular loop of radius $R = 10\\text{ cm}$ carrying a current $I = 5\\text{ A}$. Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T\\cdot m/A}$. Write your answer in $\\mu\\text{T}$."
+  }
+]

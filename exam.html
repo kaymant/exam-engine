@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Environment</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- KaTeX for synchronous math rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+</head>
+<body>
+    <div class="exam-header">
+        <h2 id="exam-title">Loading Exam...</h2>
+        <div id="timer">--:--</div>
+    </div>
+
+    <main class="exam-container" id="exam-container">
+        <!-- JS will inject questions here -->
+    </main>
+
+    <div class="exam-footer">
+        <button class="btn-take" id="submit-exam-btn" style="display:none;" onclick="submitExam()">Submit Exam</button>
+    </div>
+
+    <script src="js/engine.js"></script>
+</body>
+</html>
