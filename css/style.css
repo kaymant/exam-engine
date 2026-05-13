@@ -216,3 +216,83 @@ button:disabled {
     width: auto;
     padding: 0.5rem 1rem;
 }
+
+/* =========================================
+   EXAM INTERFACE STYLING
+   ========================================= */
+
+/* Constrain the width and center everything */
+.exam-header, 
+.exam-container, 
+.exam-footer {
+    max-width: 800px;  /* Keeps line lengths readable for math */
+    margin: 0 auto;    /* Centers the container on the screen */
+    width: 100%;
+    padding: 1rem;     /* Prevents touching the sides on mobile */
+}
+
+/* Style the top header bar */
+.exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+}
+
+.exam-header h2 {
+    color: var(--primary-color);
+    margin: 0;
+}
+
+#timer {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: var(--text-muted);
+    background: var(--bg-color);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+/* Make the option lists look like clickable buttons */
+.exam-list li {
+    display: flex;
+    align-items: flex-start; /* Aligns checkbox with the top of multi-line math */
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.75rem;
+    border-radius: 6px;
+    background-color: var(--card-bg);
+    transition: all 0.2s ease;
+}
+
+/* Hover effect for options */
+.exam-list li:hover {
+    background-color: var(--bg-color);
+    border-color: #d1d5db;
+}
+
+/* Enlarge radio buttons and checkboxes slightly */
+.exam-list input[type="radio"],
+.exam-list input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-top: 0.25rem; /* Adjusts alignment with KaTeX text */
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+/* The Submit Button Area */
+.exam-footer {
+    text-align: right;
+    padding-bottom: 4rem; /* Extra space at the bottom of the page */
+}
+
+#submit-exam-btn {
+    font-size: 1.1rem;
+    padding: 0.75rem 2rem;
+    background-color: var(--primary-color);
+}
