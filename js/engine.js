@@ -1,8 +1,15 @@
+// js/engine.js
+
 // PASTE YOUR ACTUAL APP SCRIPT URL HERE
 const API_URL = 'https://script.google.com/macros/s/AKfycbypWMCNgDxW0y4VJ8n86oDxN7NM0WewaK02lUXAG9TCk8xGT__dmDE0P4j0fsyfk8WGoQ/exec';
 
 let currentExamId = "";
 let studentEmail = "";
+
+// Timer Variables
+let timerInterval;
+let timeRemaining; 
+let examDuration; 
 
 document.addEventListener("DOMContentLoaded", () => {
     studentEmail = sessionStorage.getItem('studentEmail');
@@ -22,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
     }
 
-    // Update Title (You can refine this to fetch the real title from the dashboard later)
     document.getElementById("exam-title").innerText = `Exam: ${currentExamId.toUpperCase()}`;
     
     loadExamData();
@@ -33,14 +39,13 @@ async function loadExamData() {
         const response = await fetch(`data/${currentExamId}.json`);
         if (!response.ok) throw new Error("Exam file not found");
         
-        // 1. Parse the new JSON structure
+        // 1. Parse the JSON structure
         const examData = await response.json();
         
-        // 2. Set the duration (Convert minutes from JSON into seconds)
-        // If you forget to put a duration in the JSON, it defaults to 60 minutes
+        // 2. Set the duration (Convert minutes into seconds)
         examDuration = (examData.duration || 60) * 60; 
 
-        // 3. CHECK PERSISTENT TIMER (Refresh-proof logic)
+        // 3. CHECK PERSISTENT TIMER
         const startTimeKey = `start_time_${currentExamId}`;
         const savedStartTime = localStorage.getItem(startTimeKey);
 
@@ -48,9 +53,10 @@ async function loadExamData() {
             const elapsed = Math.floor((Date.now() - parseInt(savedStartTime)) / 1000);
             timeRemaining = examDuration - elapsed;
             
-            // If they refreshed after time expired, force submit
+            // If expired, clear the old memory and force submit
             if (timeRemaining <= 0) {
-                alert("Your time expired while you were away.");
+                localStorage.removeItem(startTimeKey); // Wipes the "ghost" memory
+                alert("Your time expired while you were away. Submitting what we have.");
                 submitExam();
                 return;
             }
@@ -70,17 +76,17 @@ async function loadExamData() {
 
 function renderQuestions(questions) {
     const container = document.getElementById('exam-container');
-    container.innerHTML = ""; // Clear loading text
+    container.innerHTML = ""; 
     
     questions.forEach((q, index) => {
         const wrapper = document.createElement('div');
-        wrapper.className = 'panel'; // Using the panel class from your CSS
+        wrapper.className = 'panel'; 
         wrapper.style.marginBottom = "2rem";
         
         let html = `<h4>Question ${index + 1} <span class="badge ${q.type.toLowerCase()}">${q.type}</span></h4>`;
         html += `<div id="math-q-${index}" style="margin: 1rem 0; font-size: 1.1rem;">${q.text}</div>`;
         
-        // --- Input Generation based on Type ---
+        // Input Generation
         if (q.type === 'SCQ') {
             html += `<ul class="exam-list" style="padding-left: 0;">`;
             q.options.forEach((opt, optIndex) => {
@@ -113,7 +119,7 @@ function renderQuestions(questions) {
         wrapper.innerHTML = html;
         container.appendChild(wrapper);
 
-        // --- Render KaTeX Synchronously ---
+        // Render KaTeX
         const renderConfig = {
             delimiters: [
                 {left: '$$', right: '$$', display: true},
@@ -131,16 +137,63 @@ function renderQuestions(questions) {
         }
     });
 
-    // Reveal Submit Button
     document.getElementById("submit-exam-btn").style.display = "block";
+    
+    // START THE CLOCK
+    startTimer(); 
 }
 
-async function submitExam() {
-    const btn = document.getElementById("submit-exam-btn");
-    btn.innerText = "Submitting...";
-    btn.disabled = true;
+// --- NEW TIMER FUNCTIONS ---
 
-    // 1. Gather all inputs
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+
+    updateTimerDisplay(); 
+
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            timeRemaining = 0;
+            updateTimerDisplay();
+            alert("Time is up! Your exam will be submitted automatically.");
+            submitExam(); 
+        } else {
+            updateTimerDisplay();
+        }
+    }, 1000);
+}
+
+function updateTimerDisplay() {
+    const timerElement = document.getElementById('timer');
+    if (!timerElement) return;
+
+    const minutes = Math.floor(timeRemaining / 60);
+    const seconds = timeRemaining % 60;
+
+    const formattedTime = 
+        `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    
+    timerElement.innerText = formattedTime;
+
+    if (timeRemaining < 300) { // Turns red under 5 minutes
+        timerElement.style.color = "var(--error-color)";
+    }
+}
+
+// --- SUBMISSION LOGIC ---
+
+async function submitExam() {
+    // Stop the clock
+    if (timerInterval) clearInterval(timerInterval);
+
+    const btn = document.getElementById("submit-exam-btn");
+    if(btn) {
+        btn.innerText = "Submitting...";
+        btn.disabled = true;
+    }
+
     const answers = {};
     const inputs = document.querySelectorAll('input');
 
@@ -159,7 +212,6 @@ async function submitExam() {
         }
     });
 
-    // 2. Package Payload for Backend
     const payload = {
         action: 'submitExam',
         email: studentEmail,
@@ -167,7 +219,6 @@ async function submitExam() {
         answers: answers
     };
 
-    // 3. Send to Google Apps Script
     try {
         const response = await fetch(API_URL, {
             method: 'POST',
@@ -178,15 +229,13 @@ async function submitExam() {
         if (result.success) {
             localStorage.removeItem(`start_time_${currentExamId}`);
             alert(`Exam Submitted Successfully! Score: ${result.score}`);
-            window.location.href = 'dashboard.html'; // Send them back to dashboard
+            window.location.href = 'dashboard.html'; 
         } else {
             alert("Submission failed: " + result.message);
-            btn.innerText = "Submit Exam";
-            btn.disabled = false;
+            if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
         }
     } catch (error) {
         alert("Network error. Please try submitting again.");
-        btn.innerText = "Submit Exam";
-        btn.disabled = false;
+        if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
     }
 }
