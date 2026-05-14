@@ -329,3 +329,34 @@ button:disabled {
     margin: 1rem 0;  /* Add space above and below */
     border-radius: 6px;
 }
+
+
+/* =========================================
+   BRANDING & FOOTERS
+   ========================================= */
+
+/* Login Page Logo */
+.login-logo {
+    max-width: 180px; /* Adjust this number to make it bigger/smaller */
+    height: auto;
+    margin: 0 auto 1.5rem auto; /* Centers it and adds space below */
+    display: block;
+}
+
+/* Universal Footer */
+.site-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-logo {
+    max-width: 24px; /* Keeps it icon-sized for the footer */
+    height: auto;
+    vertical-align: middle; /* Aligns it nicely with the text */
+    margin-right: 0.5rem;
+    opacity: 0.7; /* Makes it look subtle */
+}

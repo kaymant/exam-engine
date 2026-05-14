@@ -53,5 +53,17 @@
     </div>
 
     <script src="js/dashboard.js"></script>
+    
+  <footer class="site-footer">
+        <p>
+            <img src="images/logo.png" alt="Anant Kumar Classes" class="footer-logo">
+            &copy; <span id="copyright-year"></span> Anant Kumar Classes. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Auto-update the copyright year
+        document.getElementById('copyright-year').innerText = new Date().getFullYear();
+    </script>
 </body>
 </html>
