@@ -106,3 +106,25 @@ function logout() {
     sessionStorage.removeItem('studentEmail');
     window.location.href = 'index.html';
 }
+
+// Universal Toast Notification Function
+function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return; // Failsafe
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    
+    toast.innerHTML = `
+        <span>${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s forwards';
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
+}

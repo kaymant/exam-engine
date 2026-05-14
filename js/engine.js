@@ -56,7 +56,8 @@ async function loadExamData() {
             // If expired, clear the old memory and force submit
             if (timeRemaining <= 0) {
                 localStorage.removeItem(startTimeKey); // Wipes the "ghost" memory
-                alert("Your time expired while you were away. Submitting what we have.");
+                showToast("Your time expired while you were away. Submitting what we have.", "error");
+                //alert("Your time expired while you were away. Submitting what we have.");
                 submitExam();
                 return;
             }
@@ -157,7 +158,8 @@ function startTimer() {
             clearInterval(timerInterval);
             timeRemaining = 0;
             updateTimerDisplay();
-            alert("Time is up! Your exam will be submitted automatically.");
+            showToast("Time is up! Your exam will be submitted automatically.", "error");
+            //alert("Time is up! Your exam will be submitted automatically.");
             submitExam(); 
         } else {
             updateTimerDisplay();
@@ -228,14 +230,39 @@ async function submitExam() {
         
         if (result.success) {
             localStorage.removeItem(`start_time_${currentExamId}`);
-            alert(`Exam Submitted Successfully! Score: ${result.score}`);
+            showToast(`Exam Submitted! Score: ${result.score}`, "success");
+            //alert(`Exam Submitted Successfully! Score: ${result.score}`);
             window.location.href = 'dashboard.html'; 
         } else {
-            alert("Submission failed: " + result.message);
+            showToast("Submission failed: " + result.message, "error");
+            //alert("Submission failed: " + result.message);
             if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
         }
     } catch (error) {
-        alert("Network error. Please try submitting again.");
+        showToast("Network error. Please try submitting again.", "error")
+        //alert("Network error. Please try submitting again.");
         if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
     }
+}
+
+// Universal Toast Notification Function
+function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return; // Failsafe
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    
+    toast.innerHTML = `
+        <span>${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s forwards';
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
 }

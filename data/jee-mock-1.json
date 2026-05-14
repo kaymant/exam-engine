@@ -26,7 +26,7 @@
   {
     "id": "q_003",
     "type": "NAT",
-    "text": "Calculate the magnitude of the magnetic field at the center of a circular loop of radius $R = 10\\text{ cm}$ carrying a current $I = 5\\text{ A}$. Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T \\cdot m/A}$. Write your answer in $\\mu\\text{T}$."
+    "text": "Calculate the magnitude of the magnetic field at the center of a circular loop of radius $R = 10\\text{ cm}$ carrying a current $I = 5\\text{ A}$. Take $\\mu_0 = 4\\pi \\times 10^{-7}\\text{ T} \\cdot\\text{ m/A}$. Write your answer in $\\mu\\text{T}$."
   }
 ]
 }

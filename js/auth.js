@@ -19,7 +19,8 @@ async function requestOTP() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput)) {
-        messageEl.innerText = "Please enter a valid email address.";
+        showToast("Please enter a valid email address.", "error");
+        //messageEl.innerText = "Please enter a valid email address.";
         return;
     }
 
@@ -51,7 +52,8 @@ async function requestOTP() {
             btn.disabled = false;
         }
     } catch (error) {
-        messageEl.innerText = "Network error. Please check your connection.";
+        showToast("Network error. Please check your connection.", "error");
+        //messageEl.innerText = "Network error. Please check your connection.";
         btn.innerText = "Continue";
         btn.disabled = false;
     }
@@ -110,4 +112,26 @@ async function verifyOTP() {
         btn.innerText = "Login";
         btn.disabled = false;
     }
+}
+
+// Universal Toast Notification Function
+function showToast(message, type = 'info') {
+    const container = document.getElementById('toast-container');
+    if (!container) return; // Failsafe
+
+    const toast = document.createElement('div');
+    toast.className = `toast ${type}`;
+    
+    toast.innerHTML = `
+        <span>${message}</span>
+        <button class="toast-close" onclick="this.parentElement.remove()">&times;</button>
+    `;
+
+    container.appendChild(toast);
+
+    // Auto-remove after 4 seconds
+    setTimeout(() => {
+        toast.style.animation = 'fadeOut 0.3s forwards';
+        setTimeout(() => toast.remove(), 300);
+    }, 4000);
 }
