@@ -12,23 +12,34 @@
     <div class="auth-container">
         <div class="auth-card">
             <h2>Student Login</h2>
-            <p>Enter your email to receive a one-time password.</p>
-
-            <!-- Step 1: Email Input -->
+            
             <div id="email-step">
-                <input type="text" id="student-name" placeholder="Full Name" required>
+                <p>Enter your email to continue.</p>
                 <input type="email" id="student-email" placeholder="student@example.com" required>
-                <button id="send-otp-btn" onclick="requestOTP()">Send OTP</button>
+                <button id="send-otp-btn" onclick="requestOTP()">Continue</button>
             </div>
 
-            <!-- Step 2: OTP Input (Hidden initially) -->
             <div id="otp-step" style="display: none;">
                 <p class="success-text">An OTP has been sent to your email.</p>
+                
+                <div id="new-user-fields" style="display: none; text-align: left; background: #f8fafc; padding: 1rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <p style="font-size: 0.85rem; color: var(--primary-color); margin-bottom: 0.5rem; font-weight: bold;">Looks like this is your first visit! Complete your profile:</p>
+                    <input type="text" id="student-name" placeholder="Full Name">
+                    <select id="student-course" style="width: 100%; padding: 0.75rem; margin-bottom: 0.5rem; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem;">
+                        <option value="" disabled selected>Select Your Course</option>
+                        <option value="Class 9">Class 9</option>
+                        <option value="Class 10">Class 10</option>
+                        <option value="Class 11">Class 11</option>
+                        <option value="Class 12">Class 12</option>
+                        <option value="Repeat JEE">Repeat (JEE)</option>
+                        <option value="Repeat NEET">Repeat (NEET)</option>
+                    </select>
+                </div>
+
                 <input type="text" id="student-otp" placeholder="Enter 6-digit OTP" required autocomplete="one-time-code">
                 <button id="verify-otp-btn" onclick="verifyOTP()">Login</button>
             </div>
 
-            <!-- Feedback Message -->
             <p id="auth-message" class="message"></p>
         </div>
     </div>
