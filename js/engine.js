@@ -230,9 +230,16 @@ async function submitExam() {
         
         if (result.success) {
             localStorage.removeItem(`start_time_${currentExamId}`);
-            showToast(`Exam Submitted! Score: ${result.score}`, "success");
-            //alert(`Exam Submitted Successfully! Score: ${result.score}`);
-            window.location.href = 'dashboard.html'; 
+            
+            // Save the results temporarily for the summary page
+            sessionStorage.setItem('lastExamResult', JSON.stringify({
+                examId: currentExamId,
+                score: result.score,
+                maxScore: result.maxScore,
+                percentile: result.percentile
+            }));
+            
+            window.location.href = 'summary.html'; 
         } else {
             showToast("Submission failed: " + result.message, "error");
             //alert("Submission failed: " + result.message);

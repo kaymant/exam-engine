@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon/favicon.ico">
+    <title>Exam Summary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="exam-container" style="text-align: center; margin-top: 4rem;">
+        <img src="images/logo.png" alt="Anant Kumar Classes Logo" class="login-logo">
+        <h2 style="color: var(--primary-color);">Exam Submitted Successfully!</h2>
+        
+        <div class="panel" style="margin: 2rem auto; max-width: 500px;">
+            <h3>Your Performance</h3>
+            
+            <div style="font-size: 3rem; font-weight: bold; color: var(--text-main); margin: 1.5rem 0;">
+                <span id="sum-score">0</span> / <span id="sum-max">0</span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-box">
+                    Percentage
+                    <span id="sum-percentage">0%</span>
+                </div>
+                <div class="stat-box">
+                    Percentile
+                    <span id="sum-percentile">0</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+            <a href="dashboard.html" class="btn-small" style="text-decoration: none; color: var(--text-main); border: 1px solid var(--border-color);">Back to Dashboard</a>
+            <a id="btn-review" href="#" class="btn-take" style="text-decoration: none; display: none;">Review Answers</a>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>
+            <img src="images/logo.png" alt="Anant Kumar Classes" class="footer-logo">
+            &copy; <span id="copyright-year"></span> Anant Kumar Classes. All rights reserved.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById('copyright-year').innerText = new Date().getFullYear();
+
+        // Populate the data
+        const resultData = sessionStorage.getItem('lastExamResult');
+        if (resultData) {
+            const data = JSON.parse(resultData);
+            
+            document.getElementById('sum-score').innerText = data.score;
+            document.getElementById('sum-max').innerText = data.maxScore;
+            
+            const percentage = ((data.score / data.maxScore) * 100).toFixed(1);
+            document.getElementById('sum-percentage').innerText = `${percentage}%`;
+            document.getElementById('sum-percentile').innerText = `${data.percentile}`;
+            
+            // Setup Review Button (It will dynamically try to access review.html, which handles lock/unlock natively)
+            const reviewBtn = document.getElementById('btn-review');
+            reviewBtn.href = `review.html?id=${data.examId}`;
+            reviewBtn.style.display = "inline-block";
+        } else {
+            window.location.href = 'dashboard.html'; // Kick out if no data
+        }
+    </script>
+</body>
+</html>

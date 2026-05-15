@@ -64,10 +64,29 @@ function renderReview(questions, studentAnswers, keys) {
         const keyData = keys[q.id];
         const uAns = studentAnswers[q.id];
         
+        let marksObtained = 0; // NEW: Track points for this specific question
+        let isAttempted = (uAns !== undefined && uAns !== null && uAns !== "");
+
         // --- SCQ & MCQ ---
         if (q.type === 'SCQ' || q.type === 'MCQ') {
             const correctArr = keyData.ans.toString().split(',');
             const userArr = uAns ? (Array.isArray(uAns) ? uAns : uAns.toString().split(',')) : [];
+
+            // Calculate Marks
+            if (isAttempted) {
+                if (q.type === 'SCQ') {
+                    marksObtained = (userArr[0] === correctArr[0]) ? keyData.pos : -keyData.neg;
+                } else if (q.type === 'MCQ') {
+                    let correctCount = 0; let incorrectCount = 0;
+                    userArr.forEach(val => {
+                        if (correctArr.includes(val.trim())) correctCount++;
+                        else incorrectCount++;
+                    });
+                    if (incorrectCount > 0) marksObtained = -keyData.neg;
+                    else if (correctCount === correctArr.length) marksObtained = keyData.pos;
+                    else if (correctCount > 0) marksObtained = (correctCount * 1); // Partial marking
+                }
+            }
 
             html += `<ul class="exam-list" style="padding-left: 0;">`;
             q.options.forEach((opt, optIndex) => {
@@ -76,9 +95,9 @@ function renderReview(questions, studentAnswers, keys) {
                 const isUserAns = userArr.includes(optStr);
                 
                 let liClass = "";
-                if (isCorrectAns && isUserAns) liClass = "correct-bg"; // Got it right
-                else if (!isCorrectAns && isUserAns) liClass = "wrong-bg"; // Picked wrong option
-                else if (isCorrectAns && !isUserAns) liClass = "missed-bg"; // Should have picked this
+                if (isCorrectAns && isUserAns) liClass = "correct-bg"; 
+                else if (!isCorrectAns && isUserAns) liClass = "wrong-bg"; 
+                else if (isCorrectAns && !isUserAns) liClass = "missed-bg"; 
 
                 const inputType = q.type === 'SCQ' ? 'radio' : 'checkbox';
                 const checkedStr = isUserAns ? "checked" : "";
@@ -95,11 +114,9 @@ function renderReview(questions, studentAnswers, keys) {
         else if (q.type === 'NAT') {
             const uVal = uAns || "";
             let inputClass = "";
-            let fbText = `<strong>Correct Answer:</strong> ${keyData.ans}`;
-            
-            // Re-run basic grading logic just for visual styling
             let isCorrect = false;
-            if(uVal !== "") {
+            
+            if(isAttempted) {
                 const uFloat = parseFloat(uVal);
                 if (keyData.ans.includes('|')) {
                     const bounds = keyData.ans.split('|');
@@ -108,6 +125,7 @@ function renderReview(questions, studentAnswers, keys) {
                     isCorrect = (uFloat === parseFloat(keyData.ans));
                 }
                 inputClass = isCorrect ? "correct-bg" : "wrong-bg";
+                marksObtained = isCorrect ? keyData.pos : -keyData.neg;
             }
 
             html += `
@@ -116,17 +134,24 @@ function renderReview(questions, studentAnswers, keys) {
             </div>`;
         }
 
-        // Add Feedback Box
+        // Add Enhanced Feedback Box
+        let scoreColor = marksObtained > 0 ? 'var(--success-color)' : (marksObtained < 0 ? 'var(--error-color)' : 'var(--text-main)');
+        
         html += `
-        <div class="review-feedback">
-            <strong>Points:</strong> +${keyData.pos} / -${keyData.neg} <br>
-            ${q.type === 'NAT' ? `<strong>Accepted Range/Value:</strong> ${keyData.ans}` : ''}
+        <div class="review-feedback" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <strong>Maximum Marks:</strong> +${keyData.pos} / -${keyData.neg} <br>
+                ${q.type === 'NAT' ? `<strong>Accepted Answer:</strong> ${keyData.ans}` : ''}
+            </div>
+            <div style="text-align: right; background: #fff; padding: 0.5rem 1rem; border-radius: 6px; border: 1px solid var(--border-color);">
+                <span style="font-size: 0.85rem; color: var(--text-muted); display: block;">Marks Obtained</span>
+                <strong style="font-size: 1.25rem; color: ${scoreColor};">${isAttempted ? marksObtained : '0'}</strong>
+            </div>
         </div>`;
         
         wrapper.innerHTML = html;
         container.appendChild(wrapper);
 
-        // Render KaTeX
         const renderConfig = { delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}], throwOnError: false };
         renderMathInElement(document.getElementById(`math-q-${index}`), renderConfig);
         if (q.options) {
