@@ -240,8 +240,11 @@ button:disabled {
     border-radius: 8px;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1.5rem;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
 }
 
 .exam-header h2 {
