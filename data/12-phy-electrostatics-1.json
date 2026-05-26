@@ -17,10 +17,10 @@
       "type": "SCQ",
       "text": "Consider a uniformly charged hemisphere of radius $R$ charged uniformly with a volume density $\\rho$. Consider points A and B both at a distance $2R$ from the center, as shown. If the electric field at A is denoted by $E$, then the electric field at B would be:<br><img src='images/class_12_electrostatics_1/hemisphere.png' class='exam-image'>",
       "options": [
-        "$\\frac{\\rho R}{6\\epsilon_0} + E$",
-        "$\\frac{\\rho R}{24\\epsilon_0} + E$",
-        "$\\frac{\\rho R}{12\\epsilon_0} + E$",
-        "$\\frac{\\rho R}{12\\epsilon_0} - E$"
+        "$\\dfrac{\\rho R}{6\\epsilon_0} + E$",
+        "$\\dfrac{\\rho R}{24\\epsilon_0} + E$",
+        "$\\dfrac{\\rho R}{12\\epsilon_0} + E$",
+        "$\\dfrac{\\rho R}{12\\epsilon_0} - E$"
       ]
     },
     {
@@ -61,10 +61,10 @@
       "type": "SCQ",
       "text": "Consider a layer of ideal dipoles lying in the xy-plane. Let the dipole moment per unit area be uniform and given by $\\vec{\\tau} = \\tau\\hat{k}$. Due to symmetry the potential will be a function of $z$ only. The difference in potential just above and just below the origin will be:",
       "options": [
-        "$\\frac{\\tau}{2\\epsilon_0}$",
-        "$\\frac{\\tau}{3\\epsilon_0}$",
-        "$\\frac{2\\tau}{\\epsilon_0}$",
-        "$\\frac{\\tau}{\\epsilon_0}$"
+        "$\\dfrac{\\tau}{2\\epsilon_0}$",
+        "$\\dfrac{\\tau}{3\\epsilon_0}$",
+        "$\\dfrac{2\\tau}{\\epsilon_0}$",
+        "$\\dfrac{\\tau}{\\epsilon_0}$"
       ]
     },
     {
@@ -95,9 +95,9 @@
       "text": "Two conducting spheres, one having twice the diameter of the other, are separated by a distance large compared to their diameters. The smaller sphere is charged while the larger one is neutral. They are now connected via a conducting wire. The fraction of the initial energy of the spheres lost as heat in the connecting wires is:",
       "options": [
         "$1$",
-        "$\\frac{1}{2}$",
-        "$\\frac{2}{3}$",
-        "$\\frac{1}{6}$"
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{2}{3}$",
+        "$\\dfrac{1}{6}$"
       ]
     },
     {
@@ -117,7 +117,7 @@
       "text": "Consider a cube which is filled uniformly with charge. The ratio of the potential at the center to that at a corner is:",
       "options": [
         "$8$",
-        "$\\frac{3}{2}$",
+        "$\\dfrac{3}{2}$",
         "$4$",
         "$2$"
       ]
@@ -127,10 +127,10 @@
       "type": "SCQ",
       "text": "Two uniform infinite sheets of electric charge densities $+\\sigma$ and $-\\sigma$ intersect at right angles. The magnitude of the electric field at an arbitrary point not on the sheets will be:",
       "options": [
-        "$\\frac{\\sigma}{\\epsilon_0}$",
-        "$\\frac{\\sigma}{\\sqrt{2}\\epsilon_0}$",
-        "$\\frac{\\sqrt{2}\\sigma}{\\epsilon_0}$",
-        "$\\frac{\\sigma}{2\\epsilon_0}$"
+        "$\\dfrac{\\sigma}{\\epsilon_0}$",
+        "$\\dfrac{\\sigma}{\\sqrt{2}\\epsilon_0}$",
+        "$\\dfrac{\\sqrt{2}\\sigma}{\\epsilon_0}$",
+        "$\\dfrac{\\sigma}{2\\epsilon_0}$"
       ]
     },
     {
@@ -150,9 +150,9 @@
       "text": "Two charged balls are initially moving with the same velocity. A uniform electric field is applied for a certain amount of time and removed. As a result, the direction of the velocity of the first ball changes by $60^{\\circ}$, its speed being reduced by half, while the direction of the velocity of the second ball changes by $90^{\\circ}$. If the charge-to-mass ratio of the first ball is $\\gamma_1$ and that of the second one $\\gamma_2$, then (neglecting the electrostatic interaction between the balls) the ratio $\\gamma_1/\\gamma_2$ equals:",
       "options": [
         "$\\sqrt{3}$",
-        "$\\frac{\\sqrt{3}}{2}$",
-        "$\\frac{5}{4}$",
-        "$\\frac{3}{4}$"
+        "$\\dfrac{\\sqrt{3}}{2}$",
+        "$\\dfrac{5}{4}$",
+        "$\\dfrac{3}{4}$"
       ]
     },
     {
@@ -160,10 +160,10 @@
       "type": "SCQ",
       "text": "Positive charge $Q$ is distributed uniformly throughout an insulating sphere of radius $R$, centred at the origin. A particle with positive charge $Q$ is placed at $x=2R$ on the axis. The magnitude of the electric field at $x=R/2$ on the z axis is:",
       "options": [
-        "$\\frac{Q}{72\\pi\\epsilon_0 R^2}$",
-        "$\\frac{Q}{8\\pi\\epsilon_0 R^2}$",
-        "$\\frac{17Q}{72\\pi\\epsilon_0 R^2}$",
-        "$\\frac{Q}{4\\pi\\epsilon_0 R^2}$"
+        "$\\dfrac{Q}{72\\pi\\epsilon_0 R^2}$",
+        "$\\dfrac{Q}{8\\pi\\epsilon_0 R^2}$",
+        "$\\dfrac{17Q}{72\\pi\\epsilon_0 R^2}$",
+        "$\\dfrac{Q}{4\\pi\\epsilon_0 R^2}$"
       ]
     },
     {
@@ -171,10 +171,10 @@
       "type": "SCQ",
       "text": "A point charge $+Q$ is fixed at the point $(0, h)$ of the xy-plane. Another point charge $q$ moving on the xy plane only under the influence of the force due to $+Q$ goes from $A(-2h,h)$ to $B(2h,h)$ along the curve $x^2=4hy$. As $q$ passes through the origin its velocity is $v_0 \\hat{i}$. Then the time taken by $q$ to go from A to B, is:",
       "options": [
-        "$\\frac{16h}{3v_0}$",
-        "$\\frac{8h}{3v_0}$",
-        "$\\frac{4h}{3v_0}$",
-        "$\\frac{4h}{v_0}$"
+        "$\\dfrac{16h}{3v_0}$",
+        "$\\dfrac{8h}{3v_0}$",
+        "$\\dfrac{4h}{3v_0}$",
+        "$\\dfrac{4h}{v_0}$"
       ]
     },
     {
@@ -182,10 +182,10 @@
       "type": "SCQ",
       "text": "Consider a cylinder of length $l$ and diameter $d$, where $l \\gg d$. It is charged uniformly on the surface. For points very close to the curved surface far from the ends, the electric field has a magnitude $E_0$. Then the field at a point on the axis whose distance from the center $r \\gg l$ can be written down as:",
       "options": [
-        "$\\frac{2rE_0}{\\sqrt{4l^2+d^2}}$",
+        "$\\dfrac{2rE_0}{\\sqrt{4l^2+d^2}}$",
         "$E_0$",
-        "$\\frac{E_0 dl}{4r^2}$",
-        "$\\frac{r}{l} E_0$"
+        "$\\dfrac{E_0 dl}{4r^2}$",
+        "$\\dfrac{r}{l} E_0$"
       ]
     },
     {
@@ -205,9 +205,9 @@
       "text": "The self energy of thin uniformly charged insulating rod is given by $U=k\\lambda^m l^n$ where $k$ is a constant, $\\lambda$ the linear charge density, $l$ the length of the rod, and $m, n$ are positive real numbers greater than 1. When two rods, each of length $l$ and carrying equal linear charge density $\\lambda$ are brought from infinity and placed together so as to coincide together, the work required is $W_1$. When the same two rods, being brought in from infinity, are placed end to end, the work required is $W_2$. Then $W_1/W_2$ is:",
       "options": [
         "$1$",
-        "$\\frac{2^m}{2^n}$",
-        "$\\frac{2^{m-1}-1}{2^{n-1}-1}$",
-        "$\\frac{2^m-1}{2^n-1}$"
+        "$\\dfrac{2^m}{2^n}$",
+        "$\\dfrac{2^{m-1}-1}{2^{n-1}-1}$",
+        "$\\dfrac{2^m-1}{2^n-1}$"
       ]
     },
     {
@@ -226,10 +226,10 @@
       "type": "SCQ",
       "text": "A thin ring of radius $R$ carries a charge $q$ distributed on it such that the linear charge density increases linearly with the angle, for $0 \\le \\varphi \\le 2\\pi$. A neutral conducting sphere, also of radius $R$, is kept on the axis of the ring such that their centres are separated by a distance $\\sqrt{3}R$, as shown. Let $k=1/4\\pi\\epsilon_0$. The potential at the point P is:<br><img src='images/class_12_electrostatics_1/ring_sphere.png' class='exam-image'>",
       "options": [
-        "$\\frac{kQ}{R}$",
-        "$\\frac{kQ}{\\sqrt{3}R}$",
-        "$\\frac{\\pi kQ}{\\sqrt{3}R}$",
-        "$\\frac{kQ}{2R}$"
+        "$\\dfrac{kQ}{R}$",
+        "$\\dfrac{kQ}{\\sqrt{3}R}$",
+        "$\\dfrac{\\pi kQ}{\\sqrt{3}R}$",
+        "$\\dfrac{kQ}{2R}$"
       ]
     },
     {
@@ -261,8 +261,8 @@
       "options": [
         "$2Q$",
         "$Q$",
-        "$\\frac{Q}{2}$",
-        "$\\frac{Q}{3}$"
+        "$\\dfrac{Q}{2}$",
+        "$\\dfrac{Q}{3}$"
       ]
     },
     {
@@ -283,8 +283,8 @@
       "options": [
         "$2$",
         "$1$",
-        "$\\frac{1}{2}$",
-        "$\\frac{1}{4}$"
+        "$\\dfrac{1}{2}$",
+        "$\\dfrac{1}{4}$"
       ]
     },
     {
