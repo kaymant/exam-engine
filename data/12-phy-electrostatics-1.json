@@ -268,7 +268,7 @@
     {
       "id": "q_025",
       "type": "SCQ",
-      "text": "A point charge $q$ is placed at the origin O of the xy plane, while another point charge $Q$ is at the point $(d, 0)$. The variation of the x component, $E_x$, of the electric field along the axis between the charges is as shown below.<br><img src='images/class_12_electrostatics_1/q25-diagram.png' class='exam-image'> <br> Which of the graphs below represents best the variation of the potential along the axis between the charges?",
+      "text": "A point charge $q$ is placed at the origin O of the xy plane, while another point charge $Q$ is at the point $(d, 0)$. The variation of the x component, $E_x$, of the electric field along the axis between the charges is as shown below.<br><img src='images/class_12_electrostatics_1/Ex_x.png' class='exam-image'> <br> Which of the graphs below represents best the variation of the potential along the axis between the charges?",
       "options": [
         "<img src='images/class_12_electrostatics_1/V_x-a.png' class='exam-image'>",
         "<img src='images/class_12_electrostatics_1/V_x-b.png' class='exam-image'>",
