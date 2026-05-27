@@ -6,9 +6,6 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbypWMCNgDxW0y4VJ8n86oDx
 let currentExamId = "";
 let studentEmail = "";
 
-// Auto-Save Tracking Object
-let studentAnswers = {};
-
 // Timer Variables
 let timerInterval;
 let timeRemaining; 
@@ -34,25 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("exam-title").innerText = `Exam: ${currentExamId.toUpperCase()}`;
     
-    // Auto-Save Listener: Capture ANY input change inside the exam container
-    document.getElementById('exam-container').addEventListener('change', function(e) {
-        if (e.target.tagName === 'INPUT') {
-            const questionId = e.target.name;
-            const type = e.target.type;
-            
-            if (type === 'radio') {
-                studentAnswers[questionId] = e.target.value;
-            } else if (type === 'checkbox') {
-                const checked = document.querySelectorAll(`input[name="${questionId}"]:checked`);
-                studentAnswers[questionId] = Array.from(checked).map(cb => cb.value);
-            } else if (type === 'number') {
-                studentAnswers[questionId] = e.target.value;
-            }
-            
-            saveProgress(); // Instantly backup to localStorage
-        }
-    });
-
     loadExamData();
 });
 
@@ -79,6 +57,7 @@ async function loadExamData() {
             if (timeRemaining <= 0) {
                 localStorage.removeItem(startTimeKey); // Wipes the "ghost" memory
                 showToast("Your time expired while you were away. Submitting what we have.", "error");
+                //alert("Your time expired while you were away. Submitting what we have.");
                 submitExam();
                 return;
             }
@@ -119,14 +98,6 @@ function renderQuestions(questions) {
                 </li>`;
             });
             html += `</ul>`;
-            
-            // Clear Response Button
-            html += `
-            <div style="margin-top: 1rem; text-align: right;">
-                <button type="button" class="btn-clear" onclick="clearResponse('${q.id}')">
-                    Clear Response
-                </button>
-            </div>`;
         } 
         else if (q.type === 'MCQ') {
             html += `<ul class="exam-list" style="padding-left: 0;">`;
@@ -138,14 +109,6 @@ function renderQuestions(questions) {
                 </li>`;
             });
             html += `</ul>`;
-            
-            // Clear Response Button
-            html += `
-            <div style="margin-top: 1rem; text-align: right;">
-                <button type="button" class="btn-clear" onclick="clearResponse('${q.id}')">
-                    Clear Response
-                </button>
-            </div>`;
         }
         else if (q.type === 'NAT') {
             html += `
@@ -175,59 +138,10 @@ function renderQuestions(questions) {
         }
     });
 
-    // RESTORE SAVED UI STATE
-    loadProgress();
-    restoreUI();
-
     document.getElementById("submit-exam-btn").style.display = "block";
     
     // START THE CLOCK
     startTimer(); 
-}
-
-// --- AUTO-SAVE & CLEAR FUNCTIONS ---
-
-function saveProgress() {
-    if (!currentExamId) return;
-    localStorage.setItem(`saved_answers_${currentExamId}`, JSON.stringify(studentAnswers));
-}
-
-function loadProgress() {
-    if (!currentExamId) return;
-    const saved = localStorage.getItem(`saved_answers_${currentExamId}`);
-    if (saved) {
-        studentAnswers = JSON.parse(saved);
-    }
-}
-
-function restoreUI() {
-    for (const [qId, ans] of Object.entries(studentAnswers)) {
-        if (Array.isArray(ans)) {
-            // Restore MCQ (Checkboxes)
-            ans.forEach(val => {
-                const cb = document.querySelector(`input[name="${qId}"][value="${val}"]`);
-                if (cb) cb.checked = true;
-            });
-        } else {
-            // Restore SCQ (Radio) or NAT (Number)
-            const input = document.querySelector(`input[name="${qId}"]`);
-            if (input && input.type === 'number') {
-                input.value = ans;
-            } else {
-                const radio = document.querySelector(`input[name="${qId}"][value="${ans}"]`);
-                if (radio) radio.checked = true;
-            }
-        }
-    }
-}
-
-function clearResponse(questionId) {
-    const inputs = document.querySelectorAll(`input[name="${questionId}"]`);
-    inputs.forEach(input => input.checked = false);
-    
-    // Remove from memory and update localStorage
-    delete studentAnswers[questionId];
-    saveProgress(); 
 }
 
 // --- NEW TIMER FUNCTIONS ---
@@ -245,6 +159,7 @@ function startTimer() {
             timeRemaining = 0;
             updateTimerDisplay();
             showToast("Time is up! Your exam will be submitted automatically.", "error");
+            //alert("Time is up! Your exam will be submitted automatically.");
             submitExam(); 
         } else {
             updateTimerDisplay();
@@ -315,7 +230,6 @@ async function submitExam() {
         
         if (result.success) {
             localStorage.removeItem(`start_time_${currentExamId}`);
-            localStorage.removeItem(`saved_answers_${currentExamId}`); // Wipe saved answers on successful submission
             
             // Save the results temporarily for the summary page
             sessionStorage.setItem('lastExamResult', JSON.stringify({
@@ -328,10 +242,12 @@ async function submitExam() {
             window.location.href = 'summary.html'; 
         } else {
             showToast("Submission failed: " + result.message, "error");
+            //alert("Submission failed: " + result.message);
             if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
         }
     } catch (error) {
         showToast("Network error. Please try submitting again.", "error")
+        //alert("Network error. Please try submitting again.");
         if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }
     }
 }
