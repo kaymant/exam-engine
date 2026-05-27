@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 2. Fetch their data
     loadDashboardData(email);
+    fetchAnalytics(email); 
 });
 
 async function loadDashboardData(email) {
@@ -36,15 +37,115 @@ async function loadDashboardData(email) {
     }
 }
 
+
+async function fetchAnalytics(email) {
+    const grid = document.getElementById('analytics-grid');
+    const chartDiv = document.getElementById('analytics-chart');
+    if (!grid) return;
+
+    const payload = {
+        action: 'getAnalytics',
+        email: email 
+    };
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            body: JSON.stringify(payload)
+        });
+        const result = await response.json();
+
+        if (result.success && result.analytics.length > 0) {
+            grid.innerHTML = ""; // Clear loading text
+            
+            // --- 1. BUILD THE SCORECARDS ---
+            result.analytics.forEach(stat => {
+                let colorClass = stat.percentile >= 90 ? 'var(--success-color)' : 
+                                (stat.percentile >= 70 ? 'var(--primary-color)' : 'var(--text-main)');
+                
+                const card = document.createElement('div');
+                card.style.cssText = "background: #f9fafb; border: 1px solid var(--border-color); border-radius: 8px; padding: 1rem;";
+                
+                card.innerHTML = `
+                    <div style="font-weight: bold; margin-bottom: 0.5rem; color: var(--text-main); font-size: 0.9rem;">${stat.examId}</div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Your Score:</span>
+                        <strong>${stat.score}</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Cohort High:</span>
+                        <strong>${stat.highestScore}</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 0.5rem; border-top: 1px solid #e5e7eb;">
+                        <span style="color: var(--text-muted); font-size: 0.85rem;">Percentile:</span>
+                        <strong style="font-size: 1.2rem; color: ${colorClass};">${stat.percentile} PR</strong>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+
+            // --- 2. BUILD THE PLOTLY CHART ---
+            if (chartDiv) {
+                // Extract data arrays for Plotly
+                const examNames = result.analytics.map(stat => stat.examId);
+                const studentScores = result.analytics.map(stat => stat.score);
+                const highestScores = result.analytics.map(stat => stat.highestScore);
+
+                // Trace 1: The Student's Scores
+                const trace1 = {
+                    x: examNames,
+                    y: studentScores,
+                    name: 'Your Score',
+                    type: 'bar',
+                    marker: { color: '#3b82f6' } // Matches var(--primary-color)
+                };
+
+                // Trace 2: The Cohort Highest Scores
+                const trace2 = {
+                    x: examNames,
+                    y: highestScores,
+                    name: 'Highest Score',
+                    type: 'bar',
+                    marker: { color: '#e5e7eb' } // Muted gray to let the student's score pop
+                };
+
+                const plotData = [trace1, trace2];
+
+                const layout = {
+                    title: 'Performance Comparison Across Exams',
+                    barmode: 'group',
+                    paper_bgcolor: 'rgba(0,0,0,0)',
+                    plot_bgcolor: 'rgba(0,0,0,0)',
+                    margin: { l: 40, r: 20, t: 40, b: 60 },
+                    xaxis: { title: 'Exam', tickangle: -45 },
+                    yaxis: { title: 'Score' },
+                    legend: { orientation: 'h', y: 1.1 }
+                };
+
+                const config = { responsive: true, displayModeBar: false };
+
+                Plotly.newPlot('analytics-chart', plotData, layout, config);
+            }
+
+        } else {
+            grid.innerHTML = "<p style='color: var(--text-muted);'>No exam data available yet. Complete a test to see your analytics!</p>";
+        }
+    } catch (error) {
+        grid.innerHTML = "<p style='color: var(--error-color);'>Failed to load analytics.</p>";
+    }
+}
+
 function renderDashboard(data) {
     // Set Welcome Header (Uses Name if available, otherwise Email)
     const displayName = data.studentName && data.studentName.trim() !== '' ? data.studentName : data.student;
     document.getElementById('welcome-text').innerText = `Welcome, ${displayName}`;
     document.getElementById('tier-text').innerText = `Current Plan: ${data.accessLevel} Tier`;
 
-    // Render Analytics
-    document.getElementById('stat-taken').innerText = data.analytics.examsTaken;
-    document.getElementById('stat-avg').innerText = data.analytics.averageScore;
+    // Render Analytics (NOTE: Ensure 'stat-taken' and 'stat-avg' still exist in your HTML!)
+   // if (document.getElementById('stat-taken') && document.getElementById('stat-avg')) {
+     //   document.getElementById('stat-taken').innerText = data.analytics.examsTaken;
+     //   document.getElementById('stat-avg').innerText = data.analytics.averageScore;
+  //  }
 
     // Render Live Exams
     const liveList = document.getElementById('live-exams-list');

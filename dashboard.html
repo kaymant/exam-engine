@@ -6,6 +6,7 @@
     <link rel="icon" type="image/png" href="/favicon/favicon.ico">
     <title>Exam Portal - Dashboard</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
 </head>
 <body>
 <div id="toast-container"></div>
@@ -21,17 +22,12 @@
         <main>
             <!-- Analytics Panel -->
             <section class="panel">
-                <h3>Your Performance</h3>
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        Exams Taken
-                        <span id="stat-taken">-</span>
-                    </div>
-                    <div class="stat-box">
-                        Average Score
-                        <span id="stat-avg">-</span>
-                    </div>
-                </div>
+                <h3>Performance Analytics</h3>
+                <div id="analytics-grid" class="analytics-grid">
+                <p style="color: var(--text-muted);">Loading your performance data...</p>
+            </div>
+
+            <div id="analytics-chart" style="width: 100%; margin-top: 2rem;"></div>
             </section>
 
             <!-- Live Exams Panel -->
