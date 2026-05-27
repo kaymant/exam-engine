@@ -1,0 +1,275 @@
+{
+  "duration": 90,
+  "questions": [
+    {
+      "id": "q_001",
+      "type": "SCQ",
+      "text": "Throughout a time interval, while the speed of a particle increases as it moves along the $x$ axis, its velocity and acceleration might be",
+      "options": [
+        "positive and negative, respectively",
+        "positive and zero, respectively",
+        "negative and negative, respectively",
+        "negative and positive, respectively"
+      ]
+    },
+    {
+      "id": "q_002",
+      "type": "SCQ",
+      "text": "An object is shot vertically upward. While it is rising:",
+      "options": [
+        "its velocity and acceleration are both upward",
+        "its velocity is upward and its acceleration is downward",
+        "its velocity and acceleration are both downward",
+        "its velocity and acceleration are both decreasing"
+      ]
+    },
+    {
+      "id": "q_003",
+      "type": "SCQ",
+      "text": "An object starts from rest at $x=0$ when $t=0$. The object moves along the axis with positive velocity after $t=0$. The instantaneous velocity $v_x$ and the average velocity $v_{x,av}$ are related by",
+      "options": [
+        "$v_x = v_{x,av}$",
+        "$v_x < v_{x,av}$",
+        "$v_x > v_{x,av}$",
+        "$v_x$ can be more than, equal to, or less than $v_{x,av}$"
+      ]
+    },
+    {
+      "id": "q_004",
+      "type": "SCQ",
+      "text": "As a rocket is accelerating vertically upward at $9.8~\\text{m/s}^2$ near Earth's surface, it releases a projectile. Immediately after release the acceleration (in $\\text{m/s}^2$) of the projectile is",
+      "options": [
+        "9.8 up",
+        "9.8 down",
+        "19.6 up",
+        "0"
+      ]
+    },
+    {
+      "id": "q_005",
+      "type": "SCQ",
+      "text": "A particle is at rest. At $t=0$, it is given an acceleration that, beginning with $3.0~\\text{m/s}^2$ at $t=0$, decreases linearly to zero in 8.0 s and then remains zero. What will be the maximum speed of the particle?",
+      "options": [
+        "$24~\\text{m/s}$",
+        "$14~\\text{m/s}$",
+        "$12~\\text{m/s}$",
+        "$16~\\text{m/s}$"
+      ]
+    },
+    {
+      "id": "q_006",
+      "type": "SCQ",
+      "text": "A feather, initially at rest, is released in a vacuum 12 m above the surface of the earth. Which of the following statements is correct?",
+      "options": [
+        "The maximum velocity of the feather is $9.8~\\text{m/s}$",
+        "The acceleration of the feather increases during the fall.",
+        "The acceleration of the feather is zero.",
+        "The acceleration of the feather remains constant during the fall."
+      ]
+    },
+    {
+      "id": "q_007",
+      "type": "SCQ",
+      "text": "An object has a constant acceleration of $3~\\text{m/s}^2$. The position versus time graph for this object has a slope",
+      "options": [
+        "of $3~\\text{m/s}^2$",
+        "that increases with time",
+        "of $3~\\text{m/s}$",
+        "that is constant"
+      ]
+    },
+    {
+      "id": "q_008",
+      "type": "SCQ",
+      "text": "Two particles move in a straight line towards each other at initial velocities $v_1$ and $v_2$ and with accelerations $a_1$ and $a_2$, respectively, directed against the corresponding initial velocities. The maximum initial separation between the particles, so that they meet subsequently, is",
+      "options": [
+        "$\\dfrac{(v_1+v_2)^2}{2(a_1+a_2)}$",
+        "$\\dfrac{2(v_1+v_2)^2}{(a_1+a_2)}$",
+        "$\\dfrac{v_1+v_2}{2(a_1+a_2)^2}$",
+        "$\\dfrac{(v_1+v_2)^2}{(a_1+a_2)}$"
+      ]
+    },
+    {
+      "id": "q_009",
+      "type": "SCQ",
+      "text": "An object is moving along the $x$ axis with its position as a function of time given by $x=x(t)$. Point O is at $x=0$. The object is <strong>definitely</strong> moving towards O when",
+      "options": [
+        "$v_x < 0$",
+        "$v_x > 0$",
+        "$x v_x > 0$",
+        "$x v_x < 0$"
+      ]
+    },
+    {
+      "id": "q_010",
+      "type": "MCQ",
+      "text": "A ball is dropped from a certain height from the floor. Each time it hits the floor, it rises to half its original height. Take the vertically upward direction as the +y direction and the floor as the origin of the coordinates. Which of the following graphs correctly represent the motion of the ball? ($v_y$: velocity, $v$: speed, $y$: position, $t$: time)",
+      "options": [
+        "<img src='images/m1d/vy_t.png' class='exam-image'>",
+        "<img src='images/m1d/v_t.png' class='exam-image'>",
+        "<img src='images/m1d/y_t.png' class='exam-image'>",
+        "<img src='images/m1d/vy_y.png' class='exam-image'>"
+      ]
+    },
+    {
+      "id": "q_011",
+      "type": "SCQ",
+      "text": "A baseball is thrown vertically into the air. The acceleration of the ball at its highest point is",
+      "options": [
+        "zero",
+        "$2g$, down",
+        "$g$, down",
+        "$g$, up"
+      ]
+    },
+    {
+      "id": "q_012",
+      "type": "SCQ",
+      "text": "An object is moving in the x direction with velocity $v_x$ and $\\dfrac{dv_x}{dt}$ is a non-zero constant. If $v_x=0$ when $t=0$ then for $t>0$ the quantity $v_x \\dfrac{dv_x}{dt}$ is",
+      "options": [
+        "positive",
+        "negative",
+        "not determined",
+        "zero"
+      ]
+    },
+    {
+      "id": "q_013",
+      "type": "SCQ",
+      "text": "At a stop light, a truck travelling at $15~\\text{m/s}$ passes a car as it starts from rest. The truck travels at constant velocity and the car accelerates at $3~\\text{m/s}^2$. How much time (in second) does the car take to catch up to the truck?",
+      "options": [
+        "10",
+        "5",
+        "25",
+        "15"
+      ]
+    },
+    {
+      "id": "q_014",
+      "type": "SCQ",
+      "text": "The coordinate of an object is given as a function of time by $x=7t-3t^2$ where $x$ is in meters and $t$ is in seconds. Its average velocity over the interval from $t=0$ to $t=4$ is",
+      "options": [
+        "$-17~\\text{m/s}$",
+        "$-5~\\text{m/s}$",
+        "$5~\\text{m/s}$",
+        "$17~\\text{m/s}$"
+      ]
+    },
+    {
+      "id": "q_015",
+      "type": "SCQ",
+      "text": "Which one of the following statements is correct for an object released from rest?",
+      "options": [
+        "The average velocity during the first second of time is $4.9~\\text{m/s}$.",
+        "During each second the object falls $9.8~\\text{m}$.",
+        "The object falls $9.8~\\text{m}$ during the first second of time.",
+        "The acceleration changes by $9.8~\\text{m/s}^2$ every second."
+      ]
+    },
+    {
+      "id": "q_016",
+      "type": "SCQ",
+      "text": "A car moving on a straight highway travelled the first one-third of its journey at a speed of $10~\\text{km/h}$, the second one-third at $20~\\text{km/h}$ and the final one-third at $60~\\text{km/h}$. The magnitude of the average velocity of the car is",
+      "options": [
+        "$14~\\text{km/h}$",
+        "$18~\\text{km/h}$",
+        "$16~\\text{km/h}$",
+        "$12~\\text{km/h}$"
+      ]
+    },
+    {
+      "id": "q_017",
+      "type": "SCQ",
+      "text": "A heavy ball falls freely, starting from rest. If $g=10~\\text{m/s}^2$ then between the third and fourth second of time it travels a distance of",
+      "options": [
+        "30 m",
+        "10 m",
+        "35 m",
+        "5 m"
+      ]
+    },
+    {
+      "id": "q_018",
+      "type": "MCQ",
+      "text": "Which of the following graphs CANNOT possibly represent the motion of a particle moving along the $x$ axis? ($x$: position, $v_x$: velocity, v: speed, s: distance, t: time.)",
+      "options": [
+        "<img src='images/m1d/x_t.png' class='exam-image'>",
+        "<img src='images/m1d/s_t.png' class='exam-image'>",
+        "<img src='images/m1d/vx_t.png' class='exam-image'>",
+        "<img src='images/m1d/v_t2.png' class='exam-image'>"
+      ]
+    },
+    {
+      "id": "q_019",
+      "type": "SCQ",
+      "text": "Each of four particles move along the x axis. Their coordinates (in meters) as functions of time (in seconds) are given by<br>particle 1: $x(t)=3.5-2.7t^3$<br>particle 2: $x(t)=3.5+2.7t^3$<br>particle 3: $x(t)=3.5+2.7t^2$<br>particle 4: $x(t)=3.5-3.4t-2.7t^2$<br>Which of these particles have constant acceleration?",
+      "options": [
+        "only 3 and 4",
+        "all four",
+        "none",
+        "only 1 and 2"
+      ]
+    },
+    {
+      "id": "q_020",
+      "type": "SCQ",
+      "text": "The acceleration of an object, starting from rest, is shown in the graph below. Other than at $t=0$ when is the velocity of the object equal to zero?<br><img src='images/m1d/ax_t.png' class='exam-image'>",
+      "options": [
+        "At $t=5~\\text{s}$",
+        "At $t=3.5~\\text{s}$",
+        "At $t=4~\\text{s}$", 
+        "At no other time less than or equal to 5s"
+      ]
+    }, 
+    {
+      "id": "q_021",
+      "type": "NAT",
+      "text": "A paratrooper jumps from an aeroplane and opens a parachute after 2 s of free fall and starts decelerating at 3 m/s$^2$. At 10 m height from ground, while descending with the help of parachute, the speed of paratrooper is 5 m/s. What is the initial height of the airplane?"
+     },
+     {
+      "id": "q_022",
+      "type": "NAT",
+      "text": "A person travelling at $43.2~\\text{km/h}$ applies the brakes giving a deceleration of $6.0~\\text{m/s}^2$ to his scooter. How far will it travel (in meters) before stopping?"
+    },
+    {
+      "id": "q_023",
+      "type": "NAT",
+      "text": "A bullet travelling with a velocity of $16~\\text{m/s}$ penetrates a tree trunk and comes to rest after moving 40 cm. Find the time taken (in seconds) by the bullet to stop assuming that the tree trunk provides a uniform resistance."
+    },
+    {
+      "id": "q_024",
+      "type": "NAT",
+      "text": "A train starts from rest and moves with a constant acceleration of $2.0~\\text{m/s}^2$ for half a minute. The brakes are then applied and the train comes to rest in one minute. Let the total distance moved by the train be $s$ meters and the maximum speed attained during the motion be $v$ m/s. Then $s+v$ equals:"
+    },
+    {
+      "id": "q_025",
+      "type": "NAT",
+      "text": "A point moving with uniform acceleration covers in the last second of its motion $\\dfrac{9}{25}\\text{th}$ of the whole distance. If it started from rest and covers 3 m in the first second, find how long it was in motion (in seconds)."
+    },
+    {
+      "id": "q_026",
+      "type": "NAT",
+      "text": "A point moving with uniform acceleration covers 25 m in the half second duration immediately after the first second of its motion, and 198 m in the eleventh second of its motion. Find the magnitude of the acceleration of the point (in $\\text{m/s}^2$)."
+    },
+    {
+      "id": "q_027",
+      "type": "NAT",
+      "text": "A particle starts from rest and moves with a uniform acceleration of $2~\\text{m/s}^2$. Find the time taken (in seconds) by it to cover the third meter."
+    },
+    {
+      "id": "q_028",
+      "type": "NAT",
+      "text": "A particle initially at rest starts moving from reference point $x=0$ along the $x$-axis, with velocity $v$ that varies as $v= 4\\sqrt{x}$ m/s. What is the distance (in meter) travelled by the particle in 4 seconds?"
+    },
+    {
+      "id": "q_029",
+      "type": "NAT",
+      "text": "A particle is moving along the $x$ axis. The variation of its position $x$ (in m) with time $t$ (in s) is given as $x=-3t^3+18t^2+16t+16$. The velocity of the particle (in m/s) when its acceleration becomes zero is: "
+    },
+    {
+      "id": "q_030",
+      "type": "NAT",
+      "text": "The displacement and the increase in the velocity of a particle in the time interval of $t$ to $t+1$ s are 125 m and 50 m/s, respectively. The distance travelled by the particle in the $(t+2)$-th s (in m) is: "
+    }
+  ]
+}

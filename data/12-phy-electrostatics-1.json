@@ -246,7 +246,7 @@
     {
       "id": "q_023",
       "type": "SCQ",
-      "text": "Two particle with charges $Q$ and $Q$ are fixed at the vertices of an equilateral triangle with sides of length $a$. If $k=1/4\\pi\\epsilon_0$, the work required to move a particle with charge $q$ from the other vertex to the center of the line joining the fixed particles is:",
+      "text": "Two particle with charges $Q$ and $-Q$ are fixed at the vertices of an equilateral triangle with sides of length $a$. If $k=1/4\\pi\\epsilon_0$, the work required to move a particle with charge $q$ from the other vertex to the center of the line joining the fixed particles is:",
       "options": [
         "$\\sqrt{2}kQq/a$",
         "$0$",
