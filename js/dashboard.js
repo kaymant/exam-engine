@@ -3,7 +3,7 @@
 // PASTE YOUR ACTUAL APP SCRIPT URL HERE
 const API_URL = 'https://script.google.com/macros/s/AKfycbypWMCNgDxW0y4VJ8n86oDxN7NM0WewaK02lUXAG9TCk8xGT__dmDE0P4j0fsyfk8WGoQ/exec';
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
     // 1. Verify the user is logged in
     const email = sessionStorage.getItem('studentEmail');
     if (!email) {
@@ -13,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 2. Fetch their data
-    loadDashboardData(email);
-    fetchAnalytics(email); 
+    await loadDashboardData(email);
+    await fetchAnalytics(email); 
 });
 
 async function loadDashboardData(email) {
