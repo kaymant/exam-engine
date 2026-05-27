@@ -58,7 +58,7 @@ async function fetchAnalytics(email) {
         console.log("🚨 GOOGLE SENT THIS HTML:", rawHTML);
         const result = JSON.parse(rawHTML); // This will still crash, but we will have the log!
         // ----------------------------
-        const result = await response.json();
+       // const result = await response.json();
 
         if (result.success && result.analytics.length > 0) {
             grid.innerHTML = ""; // Clear loading text
