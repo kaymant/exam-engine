@@ -147,7 +147,7 @@
     {
       "id": "q_014",
       "type": "SCQ",
-      "text": "The domain of the function $f(x)=\\frac{x^2+1}{x^2-3x+3}$ is",
+      "text": "The domain of the function $f(x)=\\dfrac{x^2+1}{x^2-3x+3}$ is",
       "options": [
         "$R-\\{1,2\\}$",
         "$R-\\{1,4\\}$",
@@ -191,7 +191,7 @@
     {
       "id": "q_018",
       "type": "MCQ",
-      "text": "The range of the function $f(x)=\\frac{x-2}{2-x}$ is",
+      "text": "The range of the function $f(x)=\\dfrac{x-2}{2-x}$ is",
       "options": [
         "$R$",
         "$R-\\{1\\}$",
@@ -235,7 +235,7 @@
     {
       "id": "q_022",
       "type": "MCQ",
-      "text": "Let $f(x)=\\frac{x-1}{x+1}$. Then $f(f(x))$ is equal to",
+      "text": "Let $f(x)=\\dfrac{x-1}{x+1}$. Then $f(f(x))$ is equal to",
       "options": [
         "$\\frac{1}{x}$",
         "$-\\frac{1}{x}$",
@@ -271,12 +271,12 @@
     {
       "id": "q_028",
       "type": "NAT",
-      "text": "If $f(x)=\\frac{x}{x-1}, x \\ne 1$, then the value of the composite function $(f \\circ f \\circ \\dots \\circ f)(x)$ evaluated 19 times, at $x=2$ is:"
+      "text": "If $f(x)=\\dfrac{x}{x-1}, x \\ne 1$, then the value of the composite function $(f \\circ f \\circ \\dots \\circ f)(x)$ evaluated 19 times, at $x=2$ is:"
     },
     {
       "id": "q_029",
       "type": "NAT",
-      "text": "If $f(x)=\\frac{x+2}{3x-1}$, find the value of $f(f(2))$."
+      "text": "If $f(x)=\\dfrac{x+2}{3x-1}$, find the value of $f(f(2))$."
     },
     {
       "id": "q_030",
