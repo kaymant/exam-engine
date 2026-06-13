@@ -237,10 +237,10 @@
       "type": "MCQ",
       "text": "Let $f(x)=\\dfrac{x-1}{x+1}$. Then $f(f(x))$ is equal to",
       "options": [
-        "$\\frac{1}{x}$",
-        "$-\\frac{1}{x}$",
-        "$\\frac{1}{x+1}$",
-        "$\\frac{1}{x-1}$"
+        "$\\dfrac{1}{x}$",
+        "$-\\dfrac{1}{x}$",
+        "$\\dfrac{1}{x+1}$",
+        "$\\dfrac{1}{x-1}$"
       ]
     },
     {
