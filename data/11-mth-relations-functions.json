@@ -15,12 +15,12 @@
     {
       "id": "q_002",
       "type": "SCQ",
-      "text": "Let $n(A)=m$ and $n(B)=n$. Then, the total number of non-empty relations that can be defined from A to B is",
+      "text": "Let $n(A)=p$ and $n(B)=q$. Then, the total number of non-empty relations that can be defined from A to B is",
       "options": [
-        "$m^n$",
-        "$n^m-1$",
-        "$mn-1$",
-        "$2^{mn}-1$"
+        "$p^q$",
+        "$q^p-1$",
+        "$pq-1$",
+        "$2^{pq}-1$"
       ]
     },
     {
@@ -37,7 +37,7 @@
     {
       "id": "q_004",
       "type": "SCQ",
-      "text": "A relation R from C to R is defined by $xRy$ iff $|x| = y$. Which of the following is correct?",
+      "text": "A relation $R$ from $\\mathbb{C}$ to $\\mathbb{R}$ is defined by $xRy$ iff $|x| = y$. Which of the following is correct?",
       "options": [
         "$(2+3i)R13$",
         "$3R(-3)$",
@@ -48,7 +48,7 @@
     {
       "id": "q_005",
       "type": "SCQ",
-      "text": "A relation R is defined in the set Z of integers as follows $(x,y) \\in R$ iff $x^2+y^2=9$. Which of the following is false?",
+      "text": "A relation $R$ is defined in the set $\\mathbb{Z}$ of integers as follows $(x,y) \\in R$ iff $x^2+y^2=9$. Which of the following is false?",
       "options": [
         "$R=\\{(0,3), (0,-3), (3, 0), (-3, 0)\\}$",
         "Domain of $R=\\{-3,0,3\\}$",
@@ -59,7 +59,7 @@
     {
       "id": "q_006",
       "type": "SCQ",
-      "text": "If $R=\\{(x,y):x, y \\in Z, x^2+y^2 \\le 4\\}$ is a relation in Z, then domain of R is",
+      "text": "If $R=\\{(x,y):x, y \\in \\mathbb{Z}, x^2+y^2 \\le 4\\}$ is a relation in $\\mathbb{Z}$, then domain of $R$ is",
       "options": [
         "$\\{0, 1, 2\\}$",
         "$\\{-2,-1,0\\}$",
@@ -70,7 +70,7 @@
     {
       "id": "q_007",
       "type": "SCQ",
-      "text": "Let R be a relation in N defined by $R=\\{(x,y):x+2y=8\\}$. The range of R is",
+      "text": "Let $R$ be a relation in $\\mathbb{N}$ defined by $R=\\{(x,y):x+2y=8\\}$. The range of $R$ is",
       "options": [
         "$\\{2, 4, 6\\}$",
         "$\\{1, 2, 3\\}$",
@@ -81,7 +81,7 @@
     {
       "id": "q_008",
       "type": "SCQ",
-      "text": "Let $A=\\{1,2,3\\}$, $B=\\{1,3,5\\}$. If relation R from A to B is given by $\\{(1, 3), (2, 5), (3, 3)\\}$, then $R^{-1}$ is",
+      "text": "Let $A=\\{1,2,3\\}$, $B=\\{1,3,5\\}$. If relation $R$ from $A$ to $B$ is given by $\\{(1, 3), (2, 5), (3, 3)\\}$, then $R^{-1}$ is",
       "options": [
         "$\\{(3, 3), (3, 1), (5, 3)\\}$",
         "$\\{(1, 3), (2, 5), (3, 3)\\}$",
@@ -103,45 +103,45 @@
     {
       "id": "q_010",
       "type": "SCQ",
-      "text": "If R is a relation on the set $A=\\{1,2,3,4,5,6,7,8,9\\}$ given by $xRy \\Leftrightarrow y=3x$, then $R \\circ R^{-1}$ is",
+      "text": "Let $A=\\{1, 2, 3, 4\\} and $R$ be a relation on $A$ defined by $R = \\{ (a, b) \\mid a, b \\in A, ab \\text{ is an even number}\\}. The range of $R$ is",
       "options": [
-        "$\\{(1, 3), (2, 6), (3, 9)\\}$",
-        "$\\{(1, 1), (2, 2), (3, 3)\\}$",
-        "$\\{(3, 3), (6, 6), (9, 9)\\}$",
-        "None of the above"
+        "$\\{1,2,3\\}$",
+        "$\\{2, 4\\}$",
+        "$\\{2, 3, 4\\}$",
+        "$\\{1, 2, 4\\}"
       ]
     },
     {
       "id": "q_011",
       "type": "SCQ",
-      "text": "If $R \\subseteq A \\times B$ and $S \\subseteq B \\times C$ be two relations, then $(S \\circ R)^{-1}$ is equal to",
+      "text": "If $A=\\{2, 4, 6, 9\\}$ and $\\{4, 6, 18, 27, 54\\}$. Let $S$ be the set of the ordered pairs $(a, b)$, where $a\\in A$, $b\\in B$ such that $a<b$ and $a$ is a factor of $b$. Then the number of elements in $S$ is ",
       "options": [
-        "$S^{-1} \\circ R^{-1}$",
-        "$R \\circ S$",
-        "$R^{-1} \\circ S^{-1}$",
-        "None of these"
+        "4",
+        "5",
+        "9",
+        "20"
       ]
     },
     {
       "id": "q_012",
       "type": "SCQ",
-      "text": "If R is a relation from a set A to the set B and S is a relation from B to C, then the relation $S \\circ R$",
+      "text": "If $[x]^2-5[x]+6=0$, where $[\\cdot]$ denotes the greatest integer function, then",
       "options": [
-        "is from C to A",
-        "is from A to C",
-        "does not exist",
-        "None of these"
+        "$x\\in [3, 4]$",
+        "$x\\in [2, 3]$",
+        "$x\\in (2, 3]$",
+        "$x\\in [2, 4)$"
       ]
     },
     {
       "id": "q_013",
       "type": "SCQ",
-      "text": "Let $A=\\{1,2,3,4\\}$ and R be the relation on A defined by $\\{(a,b): a, b \\in A, a \\times b \\text{ is an even number}\\}$, then the range of R is",
+      "text": "The domain of the function $f$ defined by $f(x)=\\dfrac{1}{\\sqrt{x-\\mid x\\mid }}$ is",
       "options": [
-        "$\\{1, 2, 4\\}$",
-        "$\\{2, 4\\}$",
-        "$\\{2, 3, 4\\}$",
-        "$\\{1, 2, 3, 4\\}$"
+        "$\\mathbb{R}$",
+        "$\\mathbb{R}^+$",
+        "$\\mathbb{R}-\\{0\\}$",
+        "None of the above"
       ]
     },
     {
