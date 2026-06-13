@@ -1,5 +1,5 @@
 {
-  "duration": 60,
+  "duration": 90,
   "questions": [
     {
       "id": "q_001",
@@ -281,7 +281,7 @@
     {
       "id": "q_030",
       "type": "NAT",
-      "text": "Let $[x]$ denote the greatest integer function. If $[x]^2 - 5[x] + 6 = 0$, find the sum of all possible integer values of $x$."
+      "text": "If the domain of the function defined by $f(x)=\\dfrac{1}{\\sqrt{[x]^2-[x]-6}}$ is given by $(-\\infty, a)\\cup [b, \\infty)$, find the value of $a^2+b^2$."
     }
   ]
 }
