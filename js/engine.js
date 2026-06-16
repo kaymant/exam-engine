@@ -31,7 +31,14 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("exam-container").innerHTML = "<h3>Error: No exam specified.</h3>";
         return;
     }
-
+    
+    if (localStorage.getItem(`locked_${currentExamId}`) === "true") {
+        alert("You have already submitted this exam.");
+        window.location.replace('dashboard.html');
+        return; // Stops the rest of the script from running
+    }
+    
+    
     document.getElementById("exam-title").innerText = `Exam: ${currentExamId.toUpperCase()}`;
     
     // Auto-Save Listener: Capture ANY input change inside the exam container
@@ -316,7 +323,7 @@ async function submitExam() {
         if (result.success) {
             localStorage.removeItem(`start_time_${currentExamId}`);
             localStorage.removeItem(`saved_answers_${currentExamId}`); // Wipe saved answers on successful submission
-            
+            localStorage.setItem(`locked_${currentExamId}`, "true");
             // Save the results temporarily for the summary page
             sessionStorage.setItem('lastExamResult', JSON.stringify({
                 examId: currentExamId,
@@ -325,7 +332,7 @@ async function submitExam() {
                 percentile: result.percentile
             }));
             
-            window.location.href = 'summary.html'; 
+            window.location.replace('summary.html'); 
         } else {
             showToast("Submission failed: " + result.message, "error");
             if(btn) { btn.innerText = "Submit Exam"; btn.disabled = false; }

@@ -105,8 +105,8 @@
       "type": "SCQ",
       "text": "Let $A=\\{1, 2, 3, 4\\}$ and $R$ be a relation on $A$ defined by $R = \\{ (a, b) \\mid a, b \\in A, ab \\text{ is an even number}\\}$. The range of $R$ is",
       "options": [
-        "$\\{1,2,3\\}$",
-        "$\\{2, 4\\}$",
+        "$\\{1, 2, 3\\}$",
+        "$\\{1, 2, 3, 4\\}$",
         "$\\{2, 3, 4\\}$",
         "$\\{1, 2, 4\\}$"
       ]
